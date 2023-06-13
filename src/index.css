@@ -16,14 +16,36 @@ body {
   height: 1090px;
   margin: 0 auto;
   position: relative;
-  background: linear-gradient(#b7d6c7, #fff2d1);
+  background: url("img/bg-cat-jum.jpg");
+  overflow: hidden;
 }
 
 .cat {
   width: 134px;
   height: 194px;
-  background: url("img/animation-catu-jump.png") repeat-x;
+  position: absolute;
+  bottom: 22px;
+  left: 42px;
+  background: url("img/animation-catu-jump.png") repeat-x 0 0;
+  background-position-x: 0;
+}
+
+.cat-running {
   animation: walk 0.5s steps(4) infinite;
+}
+
+.cat-crashed {
+  background-position-x: -252px;
+}
+
+.cactus {
+  width: 46px;
+  height: 96px;
+  position: absolute;
+  bottom: 16px;
+  left: 600px;
+  z-index: 1;
+  background: url("Poner aquí ruta de obsta culo jeje Xd") no-repeat;
 }
 
 @keyframes walk {
@@ -36,13 +58,13 @@ body {
   }
 }
 
-/* .floor {
+.floor {
   width: 200%;
   height: 42px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url (suelo) repeat-x 0 0;
+  background: url ("img/floor-cat-jump.png") repeat-x 0 0;
   background-size: 50% 42px;
 }
 
@@ -50,9 +72,12 @@ body {
   width: 100px;
   height: 30px;
   position: absolte;
-  top: 5px;
+  top: 15px;
   right: 15px;
   z-index: 10;
   color: #d48872;
   font-family: Verdana;
-} */
+  font-size: 30px;
+  font-weight: bold;
+  text-align: right;
+}
