@@ -1,68 +1,58 @@
-*{  
+* {
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
-body{
+body {
   height: 100vh;
   background: #584040;
-  display:flex;
+  display: flex;
   align-items: center;
 }
-.container{
-  width: 1278px;
-  height: 718px;
+
+.container {
+  width: 2000px;
+  height: 1090px;
   margin: 0 auto;
   position: relative;
-  background: linear-gradient(#B7D6C7, #FFF2D1);
+  background: linear-gradient(#b7d6c7, #fff2d1);
 }
 
-.cat{
-  width: 84px;
-  height: 432px;
-  position: absolute;
-  bottom: 22px;
-  left: 42px;
-  z-index: 2;
-  background: url("img/animation-catu.png") repeat-x 0px 0px;
-  background-size: 432px 131px;
-  background-position-x: 0;
+.cat {
+  width: 134px;
+  height: 194px;
+  background: url("img/animation-catu-jump.png") repeat-x;
+  animation: walk 0.5s steps(4) infinite;
 }
 
-.cat-run{
-  animation: animationCat 0.25 step(2) infinite;
-}
-
-.cat-dead{
-  background-position-x: -252px;
-}
-
-@keyframes animationCat{
-  from{
-      background-position-x: 0px;
+@keyframes walk {
+  0% {
+    background-position: 0;
   }
-  to{
-      background-position-x: -286px;
+
+  100% {
+    background-position: -538px;
   }
 }
 
-.floor{
+/* .floor {
   width: 200%;
   height: 42px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url (SUELO) repeat-x 0px 0px;
+  background: url (suelo) repeat-x 0 0;
   background-size: 50% 42px;
 }
 
-.score{
+.score {
   width: 100px;
   height: 30px;
-  position:absolte;
-  top:5px;
+  position: absolte;
+  top: 5px;
   right: 15px;
-  z-index:10;
-  color: #D48872 ;
+  z-index: 10;
+  color: #d48872;
   font-family: Verdana;
-}
+} */
