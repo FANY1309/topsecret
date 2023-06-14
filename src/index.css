@@ -45,7 +45,11 @@ body {
   bottom: 16px;
   left: 600px;
   z-index: 1;
-  background: url("Poner aquí ruta de obsta culo jeje Xd") no-repeat;
+  background: url("img/bg-cactu-cat-jump.png") no-repeat;
+}
+
+.cat-jump {
+  animation: cat-jump 1s linear infinite;
 }
 
 @keyframes walk {
@@ -55,6 +59,17 @@ body {
 
   100% {
     background-position: -538px;
+  }
+}
+
+@keyframes cat-jump {
+  0% {
+    bottom: 183px;
+  }
+
+  45%,
+  55% {
+    bottom: 600px;
   }
 }
 
@@ -70,7 +85,7 @@ body {
 .score {
   padding: 70px;
   height: 100px;
-  position: absolte;
+  position: absolute;
   z-index: 10;
   color: #d48872;
   font-family: Verdana;
