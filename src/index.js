@@ -153,7 +153,17 @@ function CreateObstacle() {
 function MoveObstacles() {
     for(let i = obstacle.length - 1; i >= 0; i--) {
         if(obstacle[i].posX < -obstacle[i].ClientWidth) {
-            
+            obstacle[i].parentNode.removeChild(obstacle[i]);
+            obstacle.splice[i];
+            WinScore();
+        }else{
+        obstacle[i].posX -= CalculateScrolling();
+        obstacle[i].style.left = obstacle[i].posX+"px";
         }
     }
+}
+
+function WinScore(){
+    score++;
+    textScore.innerText = score;
 }
