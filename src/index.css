@@ -17,39 +17,57 @@ body {
   margin: 0 auto;
   position: relative;
   background: url("img/bg-cat-jum.jpg");
-  overflow: hidden;
 }
 
 .cat {
   width: 134px;
   height: 194px;
   position: absolute;
-  bottom: 183px;
-  left: 42px;
-  background: url("img/animation-catu-jump.png") repeat-x 0 0;
-  background-position-x: 0;
+  bottom: 200px;
+  left: 45px;
+  background: url("img/animation-catu-jump.png");
+  z-index: 310;
 }
 
 .cat-running {
   animation: walk 0.5s steps(4) infinite;
 }
 
+/* 
 .cat-crashed {
   background-position-x: -252px;
-}
+} */
 
-.cactus {
-  width: 46px;
-  height: 96px;
+.floor-cactus {
+  width: 2560px;
+  height: 1440px;
   position: absolute;
-  bottom: 16px;
-  left: 600px;
-  z-index: 1;
-  background: url("img/bg-cactu-cat-jump.png") no-repeat;
+  bottom: 0;
+  left: 0;
+  background: url("img/bg-cactu-cat-jump.png");
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+  animation: animated-background 10s linear infinite;
 }
 
 .cat-jump {
-  animation: cat-jump 1s linear infinite;
+  /* animation: cat-jump 1s steps(1); */
+  animation-name: cat-jump;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cat-jump {
+  0% {
+    bottom: 194px;
+  }
+
+  45%,
+  55% {
+    bottom: 600px;
+  }
 }
 
 @keyframes walk {
@@ -62,34 +80,36 @@ body {
   }
 }
 
-@keyframes cat-jump {
-  0% {
-    bottom: 183px;
-  }
-
-  45%,
-  55% {
-    bottom: 600px;
-  }
-}
-
 .floor {
   width: 2560px;
   height: 1440px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url("img/floor-cat-jump.png") repeat-x 0 0;
+  background: url("img/floor-cat-jump.png");
+  z-index: 300;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+  animation: animated-background 10s linear infinite;
+}
+
+@keyframes animated-background {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -10000px 0;
+  }
 }
 
 .score {
   padding: 70px;
   height: 100px;
-  position: absolute;
   z-index: 10;
   color: #d48872;
   font-family: Verdana;
   font-size: 50px;
   font-weight: bold;
-  text-align: right;
 }
