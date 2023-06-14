@@ -109,7 +109,8 @@ body {
   height: 100px;
   z-index: 10;
   color: #d48872;
-  font-family: Verdana;
+
+  /* font-family: Verdana; */
   font-size: 50px;
   font-weight: bold;
 }
