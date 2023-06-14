@@ -66,27 +66,25 @@ function Start() {
   container = document.querySelector(".container");
   textScore = document.querySelector(".score");
   cat = document.querySelector(".cat");
-  document.addEventListener("keydown", HandletKeyDown);
+  document.addEventListener("click", HandletKeyDown);
 }
 
 /*
     keyCode 32 es la barra espaciadora del teclado
     */
-function HandletKeyDown(ev) {
-  if (ev.keyCode == 32) {
-    Jump();
-  }
-}
+// function HandletKeyDown(ev) {
+//   if (ev.keyCode == 32) {
+//     Jump();
+//   }
+// }
 
-/* */
-
-function Jump() {
-  if (catPosY === floorY) {
-    jumping = true;
-    speedY = impulse;
-    cat.classList.remove("cat-running");
-  }
-}
+// function Jump() {
+//   if (catPosY === floorY) {
+//     jumping = true;
+//     speedY = impulse;
+//     cat.classList.remove("cat");
+//   }
+// }
 
 /* Con la función UPDATE vamos a mover el escenario un poquito para que los
 obstáculos avancen sobre el CAT y así parezca que CAT está corriendo, cuando
@@ -104,7 +102,7 @@ function Update() {
 /* CalculateScrolling atiende al desplazamiento del suelo */
 function MoveFloor() {
   floorX += CalculateScrolling();
-  floor.style.left = -(floorX % container.ClientWidth) + "px";
+  floor.classList.add("floor") = -(floorX % container.ClientWidth) + "px";
 }
 
 function CalculateScrolling() {
@@ -117,14 +115,14 @@ function MoveCat() {
   if (catPosY < floorY) {
     TouchFloor();
   }
-  cat.style.bottom = catPosY + "px";
+  cat.classList.add("cat") = catPosY + "px";
 }
 
 function TouchFloor() {
   catPosY = floorY;
   speedY = 0;
   if (jumping) {
-    cat.classList.add("cat-running");
+    cat.classList.add("cat");
   }
   jumping = false;
 }
