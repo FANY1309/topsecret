@@ -32,27 +32,27 @@ Fuera de las funciones, creamos una variable por cada objeto que vamos a utiliza
 cualquier parte de nuestro código.
 */
 
-let floorY = 22;
+const floorY = 22;
 let speedY = 0;
-let impulse = 900;
-let gravity = 2500;
+const impulse = 900;
+const gravity = 2500;
 
-let catPosX = 42;
+const catPosX = 42;
 let catPosY = sueloY;
 
 let floorX = 0;
-let speedStage = 1280;
-let gameSpeed = 1;
-let score = 0;
+const speedStage = 1280;
+const gameSpeed = 1;
+const score = 0;
 
-let stopped = false;
+const stopped = false;
 let jumping = false;
 
 let timeUntilObstacle = 2;
-let timeObstacleMin = 0.7;
-let timeObstacleMax = 1.8;
-let obstaclePosY = 16;
-let obstacle = [];
+const timeObstacleMin = 0.7;
+const timeObstacleMax = 1.8;
+const obstaclePosY = 16;
+const obstacle = [];
 
 let container;
 let cat;
@@ -61,109 +61,107 @@ let floor;
 let gameOver;
 
 function Start() {
-    gameOver = document.querySelector(".game-over");
-    floor = document.querySelector(".floor");
-    container = document.querySelector(".container");
-    textScore = document.querySelector(".score");
-    cat = document.querySelector(".cat");
-    document.addEventListener("keydown", HandletKeyDown);
+  gameOver = document.querySelector(".game-over");
+  floor = document.querySelector(".floor");
+  container = document.querySelector(".container");
+  textScore = document.querySelector(".score");
+  cat = document.querySelector(".cat");
+  document.addEventListener("keydown", HandletKeyDown);
+}
 
-
-    /*
+/*
     keyCode 32 es la barra espaciadora del teclado
     */
 function HandletKeyDown(ev) {
-    if(ev.keyCode == 32){
+  if (ev.keyCode == 32) {
     Jump();
-    }
+  }
 }
 
 /* */
 
-function Jump(){
-    if(catPosY === floorY) {
-jumping =true;
-speedY = impulse;
-cat.classList.remove("cat-running");
-    }
+function Jump() {
+  if (catPosY === floorY) {
+    jumping = true;
+    speedY = impulse;
+    cat.classList.remove("cat-running");
+  }
 }
 
-/*Con la función UPDATE vamos a mover el escenario un poquito para que los 
-obstáculos avancen sobre el CAT y así parezca que CAT está corriendo, cuando 
+/* Con la función UPDATE vamos a mover el escenario un poquito para que los
+obstáculos avancen sobre el CAT y así parezca que CAT está corriendo, cuando
 en realidad es el FONDO el que se mueve.
 */
 function Update() {
+  MoveFloor();
+  MoveCat();
+  DecideToCreateObstacles();
+  MoveObstacles();
 
-    MoveFloor();
-    MoveCat();
-    DecideToCreateObstacles();
-    MoveObstacles();
-
-    speedY -= gravity * deltaTime;
+  speedY -= gravity * deltaTime;
 }
 
-/* CalculateScrolling atiende al desplazamiento del suelo*/
+/* CalculateScrolling atiende al desplazamiento del suelo */
 function MoveFloor() {
-    floorX += CalculateScrolling();
-    floor.style.left = -(floorX % container.ClientWidth) + "px";
+  floorX += CalculateScrolling();
+  floor.style.left = -(floorX % container.ClientWidth) + "px";
 }
 
 function CalculateScrolling() {
-    return speedStage * deltaTime * gameSpeed;
+  return speedStage * deltaTime * gameSpeed;
 }
 
 function MoveCat() {
-    catPosY += speedY * deltaTime;
+  catPosY += speedY * deltaTime;
 
-    if(catPosY < floorY){
-        TouchFloor();
-    }
-    cat.style.bottom = catPosY+"px";
+  if (catPosY < floorY) {
+    TouchFloor();
+  }
+  cat.style.bottom = catPosY + "px";
 }
 
 function TouchFloor() {
-    catPosY = floorY;
-    speedY = 0;
-    if(jumping){
-        cat.classList.add("cat-running");
-    }
-    jumping = false;
+  catPosY = floorY;
+  speedY = 0;
+  if (jumping) {
+    cat.classList.add("cat-running");
+  }
+  jumping = false;
 }
 
 function DecideToCreateObstacles() {
-    timeUntilObstacle -= deltaTime;
-    if(timeUntilObstacle <= 0){
-        CreateObstacle();
-    }
+  timeUntilObstacle -= deltaTime;
+  if (timeUntilObstacle <= 0) {
+    CreateObstacle();
+  }
 }
 
-
-/*Aquí se añadirían los obstáculos, donde va "cactus"*/
+/* Aquí se añadirían los obstáculos, donde va "cactus" */
 function CreateObstacle() {
-    let obstacle = document.createElement("div")
-    container.appendChild(obstacle);
-    obstacle.classList.add("cactus");
-    obstacle.posX = container.ClientWidth;
-    obstacle.style.left = container.ClientWidth+"px";
+  const obstacle = document.createElement("div");
+  container.appendChild(obstacle);
+  obstacle.classList.add("cactus");
+  obstacle.posX = container.ClientWidth;
+  obstacle.style.left = container.ClientWidth + "px";
 
-    obstacle.push(obstacle);
-    timeUntilObstacle = timeObstacleMin + Math.random() * (timeObstacleMax-timeObstacleMin) / gameSpeed;
+  obstacle.push(obstacle);
+  timeUntilObstacle = timeObstacleMin + Math.random() * (timeObstacleMax - timeObstacleMin) / gameSpeed;
 }
 
 function MoveObstacles() {
-    for(let i = obstacle.length - 1; i >= 0; i--) {
-        if(obstacle[i].posX < -obstacle[i].ClientWidth) {
-            obstacle[i].parentNode.removeChild(obstacle[i]);
-            obstacle.splice[i];
-            WinScore();
-        }else{
-        obstacle[i].posX -= CalculateScrolling();
-        obstacle[i].style.left = obstacle[i].posX+"px";
-        }
+  for (let i = obstacle.length - 1; i >= 0; i--) {
+    if (obstacle[i].posX < -obstacle[i].ClientWidth) {
+      obstacle[i].parentNode.removeChild(obstacle[i]);
+      obstacle.splice[i];
+      WinScore();
+    } else {
+      obstacle[i].posX -= CalculateScrolling();
+      obstacle[i].style.left = obstacle[i].posX + "px";
     }
+  }
 }
 
-function WinScore(){
-    score++;
-    textScore.innerText = score;
-}
+// function WinScore() {
+//   score++;
+//   textScore.innerText = score;
+// }
