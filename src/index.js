@@ -84,7 +84,7 @@ function Jump(){
     if(catPosY === floorY) {
 jumping =true;
 speedY = impulse;
-cat.classList.remove("cat-running");
+cat.classList.remove("img/animation-catu-jump.png");
     }
 }
 
@@ -125,7 +125,7 @@ function TouchFloor() {
     catPosY = floorY;
     speedY = 0;
     if(jumping){
-        cat.classList.add("cat-running");
+        cat.classList.add("img/animation-catu-jump.png");
     }
     jumping = false;
 }

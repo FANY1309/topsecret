@@ -24,7 +24,7 @@ body {
   width: 134px;
   height: 194px;
   position: absolute;
-  bottom: 22px;
+  bottom: 183px;
   left: 42px;
   background: url("img/animation-catu-jump.png") repeat-x 0 0;
   background-position-x: 0;
@@ -59,25 +59,22 @@ body {
 }
 
 .floor {
-  width: 200%;
-  height: 42px;
+  width: 2560px;
+  height: 1440px;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url ("img/floor-cat-jump.png") repeat-x 0 0;
-  background-size: 50% 42px;
+  background: url("img/floor-cat-jump.png") repeat-x 0 0;
 }
 
 .score {
-  width: 100px;
-  height: 30px;
+  padding: 70px;
+  height: 100px;
   position: absolte;
-  top: 15px;
-  right: 15px;
   z-index: 10;
   color: #d48872;
   font-family: Verdana;
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   text-align: right;
 }
