@@ -26,7 +26,7 @@ body {
   height: 194px;
   position: absolute;
   bottom: 200px;
-  left: 45px;
+  left: 200px;
   background: url("img/animation-catu-jump.png");
   z-index: 310;
 }
