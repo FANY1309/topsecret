@@ -104,7 +104,7 @@ body {
 }
 
 .pyramid {
-  width: 2560px;
+  width: 11016px;
   height: 1440px;
   bottom: 0;
   left: 0;
@@ -112,16 +112,16 @@ body {
   z-index: 100;
   background-position: 0 0;
   background-size: auto 100%;
-  animation: animated-pyramid 400s linear;
+  animation: animated-pyramid 300s linear;
 }
 
 @keyframes animated-pyramid {
   from {
-    background-position: 1000px 0;
+    background-position: 0 0;
   }
 
   to {
-    background-position: -2560px 0;
+    background-position: -11016px 0;
   }
 }
 
