@@ -1,12 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  height: 100vh;
+  background: #584040;
+  display: flex;
+  align-items: center;
+}
+
 .game {
   width: 2560px;
   height: 1440px;
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
   background-image: url("public/img/bg-cat-jum.jpg");
 }
 
-.cat {
+#cat {
   width: 134px;
   height: 194px;
+  bottom: 200px;
+  left: 45px;
   background-image: url("public/img/animation-catu-jump.png");
+}
+
+.catjump {
+  animation: catJump 0.5s steps(4) infinite;
+}
+
+@keyframes catJump {
+  0% {
+    top: 150px;
+  }
+
+  30% {
+    top: 130px;
+  }
+
+  50% {
+    top: 80px;
+  }
+
+  80% {
+    top: 130px;
+  }
+
+  100% {
+    top: 150px;
+  }
 }

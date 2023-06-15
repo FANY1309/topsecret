@@ -11,3 +11,8 @@ document.body.addEventListener("keyup", function (e) {
     }, 1000);
   }
 });
+const cat = document.getElementById("cat");
+
+function catjump() {
+  cat.classList.add("catjump");
+}
