@@ -16,3 +16,6 @@ const cat = document.getElementById("cat");
 function catjump() {
   cat.classList.add("catjump");
 }
+document.addEventListener("keydown", function (event)) {
+  catjump();
+}
