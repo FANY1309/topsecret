@@ -13,14 +13,14 @@ document.body.addEventListener("keyup", function (e) {
   }
 });
 
-setInterval(function () {
-  const catbottom = parseInt(window.getComputedStyle(catPlayer).getPropertyValue("bottom"));
+// setInterval(function () {
+//   const catbottom = parseInt(window.getComputedStyle(catPlayer).getPropertyValue("bottom"));
 
-  const cactusLeft = parseInt(
-    window.getComputedStyle(".floor-cactus").getPropertyValue("left")
-  );
+//   const cactusLeft = parseInt(
+//     window.getComputedStyle(".floor-cactus").getPropertyValue("left")
+//   );
 
-  if (cactusLeft <  && cactusLeft > 134 && catbottom >= 195) {
-    alert("Game Over!");
-  }
-}, 10);
+//   if (cactusLeft <  && cactusLeft > 134 && catbottom >= 195) {
+//     alert("Game Over!");
+//   }
+// }, 10);
