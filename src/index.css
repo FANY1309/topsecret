@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -6,49 +8,120 @@
 
 body {
   height: 100vh;
-  background: #584040;
   display: flex;
   align-items: center;
 }
 
-.game {
+.container {
   width: 2560px;
   height: 1440px;
   margin: 0 auto;
   position: relative;
-  background-image: url("public/img/bg-cat-jum.jpg");
+  background: url("img/bg-cat-jum.jpg");
 }
 
 #cat {
   width: 134px;
   height: 194px;
+  position: absolute;
   bottom: 200px;
   left: 45px;
-  background-image: url("public/img/animation-catu-jump.png");
+  background-image: url("img/animation-catu-jump.png");
 }
 
-.catjump {
+.catRunning {
+  animation: catRunning 0.5s steps(4) infinite;
+}
+
+@keyframes catRunning {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -538px;
+  }
+}
+
+.catJump {
   animation: catJump 0.5s steps(4) infinite;
 }
 
 @keyframes catJump {
   0% {
-    top: 150px;
+    top: 194px;
   }
 
   30% {
-    top: 130px;
+    top: 203px;
   }
 
   50% {
-    top: 80px;
+    top: 600px;
   }
 
   80% {
-    top: 130px;
+    top: 203px;
   }
 
   100% {
-    top: 150px;
+    top: 194px;
+  }
+}
+
+#obstacle {
+  width: 20px;
+  height: 40px;
+  position: relative;
+  top: 110px;
+  left: 580px;
+  background-image: url("img/bg-cactu-cat-jump.png");
+  background-size: 20px 40px;
+  animation: block 1s infinite linear;
+}
+
+#floor {
+  width: 2560px;
+  height: 1440px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url("img/floor-cat-jump.png");
+  z-index: 2;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+  animation: animated-background 10s linear infinite;
+}
+
+@keyframes animated-background {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -10000px 0;
+  }
+}
+
+#pyramid {
+  width: 2560px;
+  height: 1440px;
+  bottom: 0;
+  left: 0;
+  background: url("img/bg-pyramid-cat-jump.png");
+  z-index: 1;
+  background-position: 0 0;
+  background-size: auto 100%;
+  animation: animated-pyramid 300s linear;
+}
+
+@keyframes animated-pyramid {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -2560px 0;
   }
 }

@@ -1,21 +1,32 @@
-const catPlayer = document.getElementsByClassName("cat");
-
-document.body.addEventListener("keyup", function (e) {
-  if (e.key === " " ||
-    e.code === "Space" ||
-    e.keyCode === 32
-  ) {
-    catPlayer[0].classList.add("cat-jump");
-    setTimeout(() => {
-      catPlayer[0].classList.remove("cat-jump");
-    }, 1000);
-  }
-});
 const cat = document.getElementById("cat");
+const obstacle = document.getElementById("obstacle");
 
-function catjump() {
-  cat.classList.add("catjump");
+function catJump() {
+  if (cat.classList != "catJump") {
+    cat.classList.add("catJump");
+
+    setTimeout(function () {
+      cat.classList.remove("catJump");
+    }, 300);
+  }
 }
-document.addEventListener("keydown", function (event)) {
-  catjump();
-}
+
+// const isAlive = setInterval(function () {
+//   // get current cat Y position
+//   const catTop = parseInt(window.getComputedStyle(cat).getPropertyValue("top"));
+
+//   // get current obstacle X position
+//   const obstacleLeft = parseInt(
+//     window.getComputedStyle(obstacle).getPropertyValue("left")
+//   );
+
+//   // detect collision
+//   if (obstacleLeft < 50 && obstacleLeft > 0 && catTop >= 590) {
+//     // collision
+//     alert("Game Over!");
+//   }
+// }, 10);
+
+document.addEventListener("keydown", function (event) {
+  catJump();
+});
