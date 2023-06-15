@@ -112,7 +112,7 @@ body {
   z-index: 100;
   background-position: 0 0;
   background-size: auto 100%;
-  animation: animated-pyramid 300s linear;
+  animation: animated-pyramid 300s linear infinite;
 }
 
 @keyframes animated-pyramid {
