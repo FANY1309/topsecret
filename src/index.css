@@ -40,7 +40,7 @@ body {
   height: 1440px;
   position: absolute;
   bottom: 0;
-  left: 182px;
+  left: 0;
   background: url("img/bg-cactu-cat-jump.png");
   background-repeat: repeat;
   background-position: 0 0;
@@ -110,15 +110,14 @@ body {
   left: 0;
   background: url("img/bg-pyramid-cat-jump.png");
   z-index: 100;
-  background-repeat: repeat;
   background-position: 0 0;
   background-size: auto 100%;
-  animation: animated-pyramid 300s linear infinite;
+  animation: animated-pyramid 400s linear;
 }
 
 @keyframes animated-pyramid {
   from {
-    background-position: 0 0;
+    background-position: 1000px 0;
   }
 
   to {
