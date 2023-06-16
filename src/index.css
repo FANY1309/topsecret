@@ -35,13 +35,13 @@ body {
   animation: walk 0.5s steps(4) infinite;
 }
 
-.floor-cactus {
+.obstacle {
   width: 2560px;
-  height: 1440px;
+  height: 500px;
   position: absolute;
   bottom: 0;
-  left: 0;
-  background: url("img/bg-cactu-cat-jump.png");
+  left: 200;
+  background: url("img/Mummy-Cat-Jump.png");
   background-repeat: repeat;
   background-position: 0 0;
   background-size: auto 100%;
