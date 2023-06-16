@@ -1,35 +1,23 @@
-// const cat = document.getElementById("cat");
-// const obstacle = document.getElementById("obstacle");
+const player = document.getElementById("cat");
+const mummy = document.getElementById("obstacle");
 
-// function catJump() {
-//   if (cat.classList != "jump") {
-//     cat.classList.add("jump");
+function keyInit() {
+  addEventListener("keydown", (ev) => {
+    const spaceKey = ev.key === 32;
+  });
+}
 
-//     setTimeout(function () {
-//       cat.classList.remove("jump");
-//     }, 1000);
-//   }
-// }
+function startGame() {
+  keyInit();
+  catWalk();
+}
 
-// setInterval(function () {
-//   // get current cat Y position
-//   const catBottom = parseInt(window.getComputedStyle(cat).getPropertyValue("bottom"));
+function catWalk() {
+  if (keyInit === true) {
+    return player.classList(".cat-running");
+  }
+}
 
-//   // get current obstacle X position
-//   const obstacleLeft = parseInt(
-//     window.getComputedStyle(obstacle).getPropertyValue("left")
-//   );
-
-//   // detect collision
-//   if (obstacleLeft < 179 && obstacleLeft > 0 && catBottom >= 94) {
-//     // collision
-//     alert("Game Over!");
-//   }
-// }, 10);
-
-// document.addEventListener("keydown", function (event) {
-//   catJump();
-// });
 /*
 >>>>>TO DO LIST<<<<<<
 

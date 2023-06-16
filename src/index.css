@@ -31,7 +31,7 @@ body {
   background-image: url("img/animation-catu-jump.png");
 }
 
-.walk {
+.cat-running {
   animation: walk 0.5s steps(4) infinite;
 }
 
@@ -46,7 +46,7 @@ body {
 }
 
 .jump {
-  animation: jump 0.7s linear;
+  animation: jump 0.6s linear;
 }
 
 @keyframes jump {
@@ -79,7 +79,8 @@ body {
   left: 0;
   background-image: url("img/Mummy-Cat-Jump.png");
   z-index: 2;
-  animation: mummy 3s infinite linear;
+
+  /* animation: mummy 2s infinite linear; */
 }
 
 @keyframes mummy {
