@@ -36,16 +36,26 @@ body {
 }
 
 .obstacle {
-  width: 2560px;
-  height: 500px;
+  width: 176px;
+  height: 194px;
   position: absolute;
-  bottom: 0;
-  left: 200;
+  bottom: 197px;
+  left: 870px;
   background: url("img/Mummy-Cat-Jump.png");
-  background-repeat: repeat;
-  background-position: 0 0;
-  background-size: auto 100%;
-  animation: animated-background 10s linear infinite;
+  background-repeat: no-repeat;
+  z-index: 400;
+
+  /* animation: animated-background 10s linear infinite; */
+}
+
+@keyframes animated-obstacle {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -2560px 0;
+  }
 }
 
 .cat-jump {
