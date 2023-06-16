@@ -1,6 +1,4 @@
 const catPlayer = document.getElementsByClassName("cat");
-const cactus = document.getElementsByClassName("floor-cactus");
-
 document.body.addEventListener("keyup", function (e) {
   if (e.key === " " ||
     e.code === "Space" ||
@@ -13,14 +11,19 @@ document.body.addEventListener("keyup", function (e) {
   }
 });
 
-// setInterval(function () {
-//   const catbottom = parseInt(window.getComputedStyle(catPlayer).getPropertyValue("bottom"));
+// const obstacle = document.querySelector("floor-cactus");
+// const isAlive = setInterval(function () {
+//   // get current cat Y position
+//   const catTop = parseInt(window.getComputedStyle(catPlayer).getPropertyValue("bottom"));
 
-//   const cactusLeft = parseInt(
-//     window.getComputedStyle(".floor-cactus").getPropertyValue("left")
+//   // get current obstacle X position
+//   const obstacleLeft = parseInt(
+//     window.getComputedStyle(obstacle).getPropertyValue("left")
 //   );
 
-//   if (cactusLeft <  && cactusLeft > 134 && catbottom >= 195) {
+//   // detect collision
+//   if (obstacleLeft < 50 && obstacleLeft > 0 && catTop >= 590) {
+//     // collision
 //     alert("Game Over!");
 //   }
 // }, 10);
