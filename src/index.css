@@ -8,6 +8,7 @@
 
 body {
   height: 100vh;
+  background: #584040;
   display: flex;
   align-items: center;
 }
@@ -26,14 +27,15 @@ body {
   position: absolute;
   bottom: 200px;
   left: 45px;
+  z-index: 2;
   background-image: url("img/animation-catu-jump.png");
 }
 
-.catRunning {
-  animation: catRunning 0.5s steps(4) infinite;
+.walk {
+  animation: walk 0.5s steps(4) infinite;
 }
 
-@keyframes catRunning {
+@keyframes walk {
   0% {
     background-position: 0;
   }
@@ -43,41 +45,51 @@ body {
   }
 }
 
-.catJump {
-  animation: catJump 0.5s steps(4) infinite;
+.jump {
+  animation: jump 0.7s linear;
 }
 
-@keyframes catJump {
+@keyframes jump {
   0% {
-    top: 194px;
+    bottom: 194px;
   }
 
   30% {
-    top: 203px;
+    bottom: 330px;
   }
 
   50% {
-    top: 600px;
+    bottom: 550px;
   }
 
   80% {
-    top: 203px;
+    bottom: 330px;
   }
 
   100% {
-    top: 194px;
+    bottom: 194px;
   }
 }
 
 #obstacle {
-  width: 20px;
-  height: 40px;
-  position: relative;
-  top: 110px;
-  left: 580px;
-  background-image: url("img/bg-cactu-cat-jump.png");
-  background-size: 20px 40px;
-  animation: block 1s infinite linear;
+  width: 176px;
+  height: 194px;
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  background-image: url("img/Mummy-Cat-Jump.png");
+  z-index: 2;
+  animation: mummy 3s infinite linear;
+}
+
+@keyframes mummy {
+  0% {
+    left: 2550px;
+  }
+
+  100% {
+    left: -176px;
+  }
 }
 
 #floor {
@@ -87,7 +99,6 @@ body {
   bottom: 0;
   left: 0;
   background: url("img/floor-cat-jump.png");
-  z-index: 2;
   background-repeat: repeat;
   background-position: 0 0;
   background-size: auto 100%;
@@ -105,15 +116,15 @@ body {
 }
 
 #pyramid {
-  width: 2560px;
+  width: 11016px;
   height: 1440px;
   bottom: 0;
   left: 0;
   background: url("img/bg-pyramid-cat-jump.png");
-  z-index: 1;
+  z-index: 100;
   background-position: 0 0;
   background-size: auto 100%;
-  animation: animated-pyramid 300s linear;
+  animation: animated-pyramid 300s linear infinite;
 }
 
 @keyframes animated-pyramid {
@@ -122,6 +133,18 @@ body {
   }
 
   to {
-    background-position: -2560px 0;
+    background-position: -11016px 0;
   }
+}
+
+#score {
+  height: 130px;
+  width: 2560px;
+  color: #d48872;
+  position: absolute;
+  bottom: 1300px;
+  font-family: "Montserrat alternates", sans-serif;
+  font-size: 130px;
+  font-weight: bold;
+  text-align: center;
 }
