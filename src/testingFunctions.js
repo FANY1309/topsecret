@@ -1,68 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cat = document.getElementById("#cat");
-  const alert = document.getElementById("#GameOver");
-  const obstacle = document.getElementById("#obstacle");
-  let isJumping = false;
-  let isGameOver = false;
+  // const alert = document.getElementById("#GameOver");
+  // const obstacle = document.getElementById("#obstacle");
+  // let isJumping = false;
+  // const isGameOver = false;
 
   function keyInit(e) {
     if (e.keyCode === 32) {
-      if (!isJumping) {
-        isJumping = true;
-        catJump();
-      }
+      catJump();
+      // if (!isJumping) {
+      //   // isJumping = true;
+
+      // }
     }
   }
-  document.addEventListener("keyup", keyInit);
+  document.addEventListener("keydown", keyInit);
   /* Con esta función queremos que nuestro gato salte 550px pero como una animación,
 no queremos que el gato vaya de A a B. Queremos que el gato salte progresivamente de a pocos píxeles,
 de 30 en 30 px hasta llegar a 550px, hasta alcanzar su punto máximo. Para ello,
 se crea la variable "timerId". Esta variable recogerá que nuestro gato saltará 30px cada X cantidad
 de milisegundos hasta que "timerId" esté finalizado (que haya llegado a 550px) */
-  let position = 200;
+
   function catJump() {
     // position es el bottom definido del gato, es decir, 200.
     const timerId = setInterval(function () {
+      const position = 0;
       // Con esta parte del código queremos que nuestro gato vuelva al bottom cuando llegue a 550px
-      if (position === 550) {
+      if (position === 150) {
         clearInterval(timerId);
         console.log("down");
         const downTimerId = setInterval(function () {
-          if (position === 200) {
+          if (position === 0) {
             clearInterval(downTimerId);
-            isJumping = false;
+            // isJumping = false;
           }
-          position -= 10;
+          position -= 20;
           cat.style.bottom = position + "px";
         }, 10);
       }
 
       // Con esta parte del código hacemos que el gato suba de 30 en 30 píxeles en 10ms.
       console.log("up");
-      position += 10;
-      cat.style = position + "px";
+      position += 20;
+      cat.style.bottom = position + "px";
       console.log(cat.style.bottom);
     }, 10); // 10 son los milisegundos
   }
 
-  function generateObstacles() {
-    let obstaclePosition = 2560;
-    const randomTime = Math.random * 4000;
-    obstacle.style.left = obstaclePosition + "px";
+  //   function generateObstacles() {
+  //     let obstaclePosition = 2560;
+  //     const randomTime = Math.random * 4000;
+  //     obstacle.style.left = obstaclePosition + "px";
 
-    const timerId = setInterval(function () {
-      if (obstaclePosition > 0 && obstaclePosition < 176 && position < 134) {
-        clearInterval(timerId);
-        alert.innerHTML = "Game Over";
-        isGameOver = true;
-      }
+  //     const timerId = setInterval(function () {
+  //       if (obstaclePosition > 0 && obstaclePosition < 176 && position < 134) {
+  //         clearInterval(timerId);
+  //         alert.innerHTML = "Game Over";
+  //         isGameOver = true;
+  //       }
 
-      obstaclePosition -= 10;
-      obstacle.style.left = obstaclePosition + "px";
-    }, 10);
-    if (!isGameOver) setTimeout(generateObstacles, randomTime);
-  }
-  generateObstacles();
+//       obstaclePosition -= 10;
+//       obstacle.style.left = obstaclePosition + "px";
+//     }, 10);
+//     if (!isGameOver) setTimeout(generateObstacles, randomTime);
+//   }
+//   generateObstacles();
 });
 
 /* >>>>>TO DO LIST<<<<<<
