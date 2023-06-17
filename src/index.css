@@ -25,7 +25,7 @@ body {
   width: 134px;
   height: 194px;
   position: absolute;
-  bottom: 200px;
+  bottom: 194px;
   left: 200px;
   background: url("img/animation-catu-jump.png");
   z-index: 310;
@@ -40,7 +40,7 @@ body {
   height: 194px;
   position: absolute;
   bottom: 197px;
-  left: 870px;
+  left: 250px;
   background: url("img/Mummy-Cat-Jump.png");
   background-repeat: no-repeat;
   z-index: 400;
