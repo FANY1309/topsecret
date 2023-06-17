@@ -5,14 +5,9 @@ const bg = document.querySelector(".background");
 const score = document.querySelector(".score");
 const gameOver = document.querySelector(".game-over");
 
-let playerScore = 0;
-let interval = 0;
-
 function catJump() {
-  const scoreCounter = () => {
-    playerScore++;
-    score.innerHTML = `${playerScore}`;
-  };
+  let playerScore = 0;
+  let interval = 0;
 
   document.addEventListener("keydown", (start) => {
     if (start.code === "Space") {
@@ -22,6 +17,10 @@ function catJump() {
       bg.style.animation = "animated-background 80s linear infinite";
       floor.style.animation = "animated-floor 18s linear infinite";
       playerScore = 0;
+      const scoreCounter = () => {
+        playerScore++;
+        score.innerHTML = `${playerScore}`;
+      };
       interval = setInterval(scoreCounter, 200);
     }
   });
@@ -37,23 +36,23 @@ function catJump() {
     }
   });
 
-  function endGame() {
+  const endGame = () => {
     setInterval(() => {
       const mummyLeft = parseInt(getComputedStyle(mummy).getPropertyValue("left"));
       const catBottom = parseInt(getComputedStyle(catPlayer).getPropertyValue("bottom"));
       // detect collision
-      if (mummyLeft <= 280 && mummyLeft >= 150 && catBottom <= 540) {
+      if (mummyLeft <= 200 && mummyLeft >= 150 && catBottom <= 400) {
         // collision
         gameOver.style.display = "block";
         catPlayer.classList.remove("cat-running");
         mummy.classList.remove("obstacle-moving");
         bg.style.animation = "none";
         floor.style.animation = "none";
-        clearInterval(interval);
         playerScore = 0;
+        clearInterval(interval);
       }
     }, 10);
-  }
+  };
   endGame();
 }
 
