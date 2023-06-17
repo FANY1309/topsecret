@@ -1,11 +1,11 @@
-const catPlayer = document.querySelector(".cat");
+const catPlayer = document.querySelector(".character");
 const mummy = document.querySelector(".obstacle");
 const floor = document.querySelector(".floor");
-const bg = document.querySelector(".background");
+const bg = document.querySelector(".background-egypt");
 const score = document.querySelector(".score");
 const gameOver = document.querySelector(".game-over");
 
-function catJump() {
+export function catJump() {
   let playerScore = 0;
   let interval = 0;
 
@@ -55,5 +55,3 @@ function catJump() {
   };
   endGame();
 }
-
-catJump();

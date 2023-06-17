@@ -13,7 +13,7 @@ body {
   align-items: center;
 }
 
-.container {
+.container-sky {
   width: 2560px;
   height: 1440px;
   margin: 0 auto;
@@ -21,7 +21,7 @@ body {
   background: url("img/bg-cat-jum.jpg");
 }
 
-.cat {
+.character {
   width: 134px;
   height: 194px;
   position: absolute;
@@ -124,7 +124,7 @@ body {
   }
 }
 
-.background {
+.background-egypt {
   width: 11016px;
   height: 1440px;
   bottom: 0;
