@@ -48,13 +48,17 @@ body {
   /* animation: animated-background 10s linear infinite; */
 }
 
+.obstacle-moving {
+  animation: animated-obstacle 4s linear infinite;
+}
+
 @keyframes animated-obstacle {
   from {
-    background-position: 0 0;
+    left: 3500px;
   }
 
   to {
-    background-position: -2560px 0;
+    left: -200px;
   }
 }
 
@@ -70,8 +74,16 @@ body {
     bottom: 194px;
   }
 
+  30% {
+    bottom: 330px;
+  }
+
   50% {
-    bottom: 600px;
+    bottom: 560px;
+  }
+
+  80% {
+    bottom: 330px;
   }
 
   100% {
@@ -100,10 +112,9 @@ body {
   background-repeat: repeat;
   background-position: 0 0;
   background-size: auto 100%;
-  animation: animated-background 10s linear infinite;
 }
 
-@keyframes animated-background {
+@keyframes animated-floor {
   from {
     background-position: 0 0;
   }
@@ -113,7 +124,7 @@ body {
   }
 }
 
-.pyramid {
+.background {
   width: 11016px;
   height: 1440px;
   bottom: 0;
@@ -122,10 +133,9 @@ body {
   z-index: 100;
   background-position: 0 0;
   background-size: auto 100%;
-  animation: animated-pyramid 300s linear infinite;
 }
 
-@keyframes animated-pyramid {
+@keyframes animated-background {
   from {
     background-position: 0 0;
   }
@@ -136,11 +146,19 @@ body {
 }
 
 .score {
-  padding: 70px;
-  height: 100px;
-  z-index: 10;
+  height: 130px;
+  width: 2560px;
   color: #d48872;
+  position: absolute;
+  bottom: 1300px;
   font-family: "Montserrat alternates", sans-serif;
-  font-size: 50px;
+  font-size: 130px;
   font-weight: bold;
+  text-align: center;
+}
+
+.game-over {
+  position: absolute;
+  bottom: 1300px;
+  font-size: 100px;
 }

@@ -1,13 +1,37 @@
-const catPlayer = document.getElementsByClassName("cat");
-document.body.addEventListener("keyup", function (e) {
-  if (e.key === " " ||
-    e.code === "Space" ||
-    e.keyCode === 32
-  ) {
-    catPlayer[0].classList.add("cat-jump");
+const catPlayer = document.querySelector(".cat");
+const mummy = document.querySelector(".obstacle");
+const floor = document.querySelector(".floor");
+const bg = document.querySelector(".background");
+const score = document.querySelector(".score");
+const gameOver = document.querySelector(".game-over");
+
+let playerScore = 0;
+
+const scoreCounter = () => {
+  playerScore++;
+  score.innerHTML = `${playerScore}`;
+};
+
+document.addEventListener("keydown", (start) => {
+  if (start.code === "Space") {
+    gameOver.style.display = "none";
+    catPlayer.classList.add("cat-running");
+    mummy.classList.add("obstacle-moving");
+    bg.style.animation = "animated-background 80s linear infinite";
+    floor.style.animation = "animated-floor 18s linear infinite";
+    playerScore = 0;
+    setInterval(scoreCounter, 200);
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowUp" || e === TouchEvent) {
+    if (catPlayer.classList !== "cat cat-jump") {
+      catPlayer.classList.add("cat-jump");
+    }
     setTimeout(() => {
-      catPlayer[0].classList.remove("cat-jump");
-    }, 1000);
+      catPlayer.classList.remove("cat-jump");
+    }, 700);
   }
 });
 
