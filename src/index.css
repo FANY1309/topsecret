@@ -44,8 +44,7 @@ body {
   background: url("img/Mummy-Cat-Jump.png");
   background-repeat: no-repeat;
   z-index: 400;
-
-  /* animation: animated-background 10s linear infinite; */
+  animation: animated-background 10s linear infinite;
 }
 
 @keyframes animated-obstacle {
